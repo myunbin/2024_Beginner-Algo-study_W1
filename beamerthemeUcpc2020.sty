@@ -1,0 +1,141 @@
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[none]{hyphenat}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX, LetterSpace=-2}
+
+\definecolor{ucpc-orange}{RGB}{223, 98, 86}
+\definecolor{ucpc-gray}{RGB}{44,49,68}
+\definecolor{apc-orange}{RGB}{230, 135, 70}
+\definecolor{apc-gray}{RGB}{50, 50, 50}
+\definecolor{apc-pink}{RGB}{201,101,95}
+
+\setmainfont{TimesLTStd}[
+    Path = fonts/,
+    Extension = .otf,
+    UprightFont = *-Roman,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-BoldItalic
+    ]
+
+\setsansfont{Inter}[
+    Path = fonts/,
+    Extension = .otf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic,
+	BoldItalicFont = *-BoldItalic
+    ]
+
+\setmonofont{DMMono}[
+    Path = fonts/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    BoldFont = *-Medium,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-MediumItalic
+    ]
+
+\setmainhangulfont[interhchar=-0.06em]{NotoSerifCJKkr}[
+    Path = fonts/,
+    Extension = .otf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold
+    ]
+
+\setsanshangulfont[interhchar=-0.06em]{NotoSansCJKkr}[
+    Path = fonts/,
+    Extension = .otf,
+    UprightFont = *-Regular,
+    BoldFont = *-Bold
+    ]
+
+\setbeamercolor{itemize item}{fg=ucpc-orange}
+\setbeamercolor{enumerate item}{fg=ucpc-orange}
+\setbeamercolor{alerted text}{fg=ucpc-orange}
+
+%table of contents
+\setbeamertemplate{section in toc}{\textbf{\inserttocsection}}
+\setbeamertemplate{section in toc}[circle]
+\setbeamertemplate{subsection in toc}[square]
+\setbeamertemplate{subsubsection in toc}[square]
+
+%block/example theme
+\setbeamertemplate{blocks}[shadow=false]
+\setbeamercolor{block title}{bg=ucpc-orange, fg=white}
+\setbeamercolor{block body}{bg=ucpc-orange!5}
+
+\setbeamercolor{block title example}{fg=white, bg=teal}
+\setbeamercolor{block body example}{ bg=teal!10}
+
+
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\normalsize}
+
+\setbeamertemplate{itemize item}{✓}
+\setbeamertemplate{itemize subitem}{--}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{title page}{}
+\setbeamertemplate{frametitle}{}
+\setbeamertemplate{caption}{\tiny\insertcaption}
+\setbeamertemplate{caption label separator}{}
+
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{frametitle}{fg=ucpc-orange}
+\setbeamercolor{structure}{fg=ucpc-orange}
+
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
+\newcommand{\sectiontitle}[2]{
+    {\huge \addfontfeatures{LetterSpace=-5} \color{ucpc-orange} \textbf{#1}. #2}\\
+    \vspace{3mm}
+}
+
+\newcommand{\sectionmeta}[1]{
+    \footnotesize{\color{ucpc-gray}#1}\\
+    \vspace{6mm}
+}
+
+\newdimen\slidewidth % auxiliary dimension
+\newdimen\slideheight % auxiliary dimension
+
+\slidewidth=\the\paperwidth
+\slideheight=\the\paperheight
+
+\spaceskip=.175em
+
+\setbeamertemplate{background}{
+    \begin{tikzpicture}
+        
+        % \fill[color=white] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        
+        \fill[color=ucpc-orange] (0, 7.9cm) rectangle(\slidewidth,\slideheight);
+
+        \node[anchor=north,text width=\slidewidth-2.0cm,inner sep=0pt] at (0.5\slidewidth,\slideheight-0.4cm){\normalsize\color{white}{\insertframetitle}};
+        
+        \node[anchor=north east,inner sep=0pt] (russell) at (\slidewidth-0.4cm, \slideheight-0.4cm) {\includegraphics[height=0.3cm]{images/ANSI Logo.png}};
+        
+        \node[anchor=south west] at(0.9cm,0.4cm) {\color{ucpc-gray}\tiny\vphantom{lp}{\inserttitle}};
+        
+        \node[anchor=south east] at(\slidewidth-0.9cm,0.4cm) {\color{ucpc-gray}\tiny\insertframenumber};
+        
+        \node[anchor=south west] at(0.9cm,0.4cm) {\color{ucpc-gray}\tiny\vphantom{lp}{\inserttitle}};
+    \end{tikzpicture}
+}
+
+% \setlength{\leftmargini}{1pt}
+% \setlength{\leftmarginii}{13pt}
+
+\makeatother

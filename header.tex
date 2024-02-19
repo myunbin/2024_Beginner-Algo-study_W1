@@ -1,0 +1,84 @@
+%!TEX program = xelatex
+\documentclass[9pt, aspectratio=169]{beamer}
+% \documentclass{beamer}
+\usefonttheme{professionalfonts}
+
+\usepackage{amsmath}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{import}
+\usepackage{kotex}
+\PassOptionsToPackage{table}{xcolor}
+\usepackage{calc}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{epigraph}
+\usepackage[many]{tcolorbox}
+\usepackage{tabto}   
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{colortbl}
+
+\usepackage{nameref}
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
+\makeatother
+
+\usepackage{minted}
+\usepackage{listings}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\definecolor{boj}{RGB}{0,118,191}
+\definecolor{ucpc-orange}{RGB}{255,153,0}
+\definecolor{acgreen}{RGB}{0,159,107}
+\definecolor{wared}{RGB}{231,76,60}
+\definecolor{light-gray}{RGB}{220,220,220}
+\definecolor{acbronze}{RGB}{173,86,0}
+\definecolor{acsilver}{RGB}{67,95,122}
+\definecolor{acgold}{RGB}{236,154,0}
+\definecolor{acplatinum}{RGB}{39,226,164}
+\definecolor{acdiamond}{RGB}{0,180,252}
+\definecolor{acruby}{RGB}{255,0,98}
+
+\linespread{1.1}
+\everymath{\displaystyle}
+
+\graphicspath{ {./images/} }
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+
+\newcommand{\translation}[1]{\textsuperscript{#1}}
+
+\setlength\fboxsep{0pt}
+
+\newcommand{\complexity}[1]{$\mathcal{O}\left({#1}\right)$}
+\newcommand{\difficulty}[1]{\includegraphics[width=1em,natwidth=1000,natheight=1000]{#1.svg.png}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\usetheme{Ucpc2020}

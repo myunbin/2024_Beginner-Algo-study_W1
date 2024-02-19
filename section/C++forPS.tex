@@ -1,0 +1,85 @@
+\section{PS를 위한 C++}
+
+\subsection{왜 C++?}
+
+\begin{frame}{\textbf{\currentname}}
+    \begin{block}{\texttt{C++}을 왜 쓸까요?}
+        \begin{itemize}
+            \item 빠릅니다.
+            \item standard library가 강력합니다.
+        \end{itemize}       
+    \end{block}
+    
+    \begin{block}{\texttt{using namespace std;}}
+        \begin{itemize}
+            \item standard library에 있는 모든 함수와 클래스는 std안에 있습니다.
+            \item 따라서 \texttt{using namespace std;}를 통해 써야할 \texttt{std::}를 생략할 수 있습니다.
+        \end{itemize}
+    \end{block}
+
+    \sout{\footnotesize Python은 억까가 좀 있습니다.}
+\end{frame}
+
+\subsection{Input / Output}
+\begin{frame}{\textbf{\currentname}}
+    \begin{block}{\texttt{std::cin, std::cout}}
+        \begin{itemize}
+            \item 입출력 시 formating이 필요 없습니다.
+            \item \texttt{cin >> a;} \texttt{cout << a;}
+        \end{itemize}
+    
+    \end{block}
+\end{frame}
+
+\subsection{bits/stdc++.h}
+
+\begin{frame}{\textbf{\currentname}}
+    \begin{block}{\texttt{bits/stdc++.h}}
+        \begin{itemize}
+            \item GCC 컴파일러 상에 포함되어 있는 모든 헤더 파일을 포함하는 헤더 파일입니다.
+            \item \texttt{\#include <bits/stdc++.h>} 
+            \item 초보자인 여러분께는 권장하지 않습니다.
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{각 헤더엔 뭐가 있나요?}
+        \begin{itemize}
+            \item 각 헤더(\texttt{algorithm, queue, string...}마다 모두 정의되어있는 함수와 자료구조들이 있습니다. 차차 알아갑시다.
+            \item \texttt{sort(a,a+n); lower\_bound(a.begin(), a.end(), x)} 등 같이 알아가봅시다.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{standard library와 vector}
+\begin{frame}{\textbf{\currentname}}
+    \begin{block}{\texttt{std::vector}}
+        \begin{itemize}
+            \item 자동으로 메모리가 할당되는 배열
+            \item \texttt{vector<int> a;}로 선언합니다.
+            \item \texttt{a.push\_back(3); a.pop\_back(); a.size();} 등
+            \item 아주 아주 아주 아주 많이 쓰입니다.
+            \item \href{https://blockdmask.tistory.com/70}{참고}
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{FastIO}
+\begin{frame}[fragile]{\textbf{\currentname}}
+    \vspace{0.5cm}
+    
+    \begin{block}{Fast Input/Output의 필요성}
+        \begin{itemize}
+            \item 개행을 의미하는 \texttt{std::endl}의 경우, buffer flush가 일어납니다.
+            \item 실행 시간에 많은 부분을 차지하므로, 이 기능을 끕니다.
+            \item 위 문장들을 입력한 뒤에는 \texttt{scanf/cin}과 \texttt{printf/cout}을 혼용하면 안됩니다.
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{사용 방법}
+        \begin{lstlisting}[language=C++, xleftmargin=10pt]
+std::ios_base::sync_with_stdio(false);
+std::cin.tie(nullptr);
+std::cout.tie(nullptr);
+\end{lstlisting}
+    \end{block}
+\end{frame}

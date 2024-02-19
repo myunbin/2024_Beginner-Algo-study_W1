@@ -1,0 +1,70 @@
+\section{시간복잡도}
+
+\begin{frame}{\textbf{\currentname}}
+    \vspace{0.5cm}
+    \begin{block}{시간복잡도}
+        \begin{itemize}
+            \item 입력의 크기($N$)과 알고리즘 실행 시간 간의 관계 함수
+            \item \textbf{반복문}이 연산 횟수를 지배합니다.
+            \item 1초 $\approx$ $10^{8}$번의 연산
+            \item \textbf{최악의 연산 횟수}를 계산해야합니다.
+        \end{itemize}
+    \end{block}
+
+    \begin{example}
+        \begin{itemize}
+            \item 원소가 $N$개인 배열에서 최댓값 찾기 : $T(N)=N$
+            \item 주어진 수 $N$의 약수의 갯수 찾기 : $T(N)=\sqrt{N}$
+        \end{itemize}
+    \end{example}
+\end{frame}
+
+\begin{frame}{\textbf{\currentname}}
+    \begin{block}{시간 복잡도의 계산}
+        \begin{itemize}
+            \item 가장 중요한 정보만 남깁니다.
+            \item 적당히 큰 수 $x>x_{0}$에 대해서 $f(x)>g(x)$라면, $g(x)$는 무시 가능
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Big-O Notation}
+        \begin{itemize}
+            \item $x>x_{0}$를 만족하는 모든 $x$에 대해 $f(x)\leq c\times g(x)$라면, 
+
+            $$f(x)\in O\left(g(x)\right)$$
+
+            \item 따라서 최고 차항의 계수와 최고 차항을 제외한 부분을 무시합니다.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{\textbf{\currentname}}
+    \begin{example}
+        \begin{itemize}
+            \item $f(n)=6n^{3}+3n+1 \in O(n^{3})$
+            \item $f(n)=3\times 4^{n}+29\times 3^{n} \in O(4^{n})$
+            \item $f(n)=4n\log{n}+4n\sqrt{n} \in O(n\sqrt{n})$
+            \item $f(n)=n\log{n}+\frac{n^2}{\log{n}} \in O\left(\frac{n^{2}}{\log{n}}\right)$
+        \end{itemize}
+    \end{example}
+\end{frame}
+
+\begin{frame}{\textbf{\currentname}}
+    \vspace{0.5cm}
+    
+    \begin{block}{복잡도의 위계}
+        $1<\log\log{N}<\log^{K}{N}<\sqrt{N}<N<N\log^{K}N<N\sqrt{N}<N^{K}<2^{N}<N!<N^{N}$
+    \end{block}
+
+    \begin{block}{대략적인 입력 제한}
+        \begin{itemize}
+            \item $O(N!) : N\approx 10$
+            \item $O(2^{N}) : N\approx 20$
+            \item $O(N^3) : N\approx 500$
+            \item $O(N^2) : N\approx 5\times 10^{3}$
+            \item $O(N\log{N}) : N\approx 2\times 10^{5}$
+            \item $O(N) : N\approx 10^{6}$
+            \item $O(\log{N}) : N\approx 10^{9}\sim 10^{18}$
+        \end{itemize}
+    \end{block}
+\end{frame}

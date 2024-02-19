@@ -1,0 +1,23 @@
+\include{header}
+\usetikzlibrary{arrows.meta,matrix,decorations.pathreplacing}
+
+\begin{document}
+
+    \AtBeginSection[]
+    {
+      \begin{frame}
+        \frametitle{\textbf{차례}}
+        \tableofcontents[currentsection]
+      \end{frame}
+    }
+    
+    \begin{frame}
+        \frametitle{\textbf{목차}}              
+        \tableofcontents
+    \end{frame}
+
+    % \import{section/}{0_template.tex}
+    \import{section/}{ot.tex}
+    \import{section/}{C++forPS.tex}
+    \import{section/}{time complexity.tex}
+\end{document}
